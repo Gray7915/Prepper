@@ -1,0 +1,21 @@
+/* Base style: looks like a label */
+.button.label-style {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: black;
+   /* -fx-font-weight: bold;*/
+    -fx-font-family: "Arial Narrow";
+    -fx-font-size: 24;
+    -fx-padding: 5 10 5 10; /* optional: spacing around text */
+}
+
+/* Hover: slightly lighter text */
+.button.label-style:hover {
+    -fx-background-color: rgba(0,0,0,0.05); /* subtle highlight */
+    -fx-cursor: hand; /* show pointer */
+}
+
+/* Pressed/selected: darker highlight */
+.button.label-style:pressed {
+    -fx-background-color: rgba(0,0,0,0.15);
+}

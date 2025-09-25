@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox style="-fx-background-color: gray;"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.prepper.HomeViewController">
+
+    <children>
+        <VBox fx:id="sidebar" prefWidth="256.0" style="-fx-background-color: darkgrey;">
+            <children>
+                <Button fx:id="AddPaperButton" text="Add Paper" prefHeight="50.0" prefWidth="200.0" styleClass="label-style">
+                    <VBox.margin>
+                        <Insets left="25.0" right="25.0" top="15.0"/>
+                    </VBox.margin>
+                </Button>
+            </children>
+        </VBox>
+
+        <AnchorPane fx:id="contentPane" style="-fx-background-color: lightgray;" HBox.hgrow="ALWAYS"/>
+    </children>
+</HBox>
+
