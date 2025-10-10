@@ -1,15 +1,27 @@
 package com.domain;
 
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
+
 import java.util.ArrayList;
 
 public class QuestionSet {
 
     private String paperCode;
     private String questionSetCode;
+    @ColumnName("AttemptCount")
+    private Integer attemptCount;
     private float previousScore;
     private float averageScore;
     private float currentScore;
     private ArrayList<Question> Questions;
+
+    public QuestionSet(String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore, int timesTaken) {
+        this.paperCode = PaperCode;
+        this.questionSetCode = QuestionSetCode;
+        this.attemptCount = timesTaken;
+        this.previousScore = PreviousScore;
+        this.averageScore = AverageScore;
+    }
 
     public QuestionSet(String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore) {
         this.paperCode = PaperCode;
@@ -72,6 +84,14 @@ public class QuestionSet {
 
     public void setQuestions(ArrayList<Question> Questions) {
         this.Questions = Questions;
+    }
+
+    public Integer getAttemptCount() {
+        return attemptCount;
+    }
+
+    public void setAttemptCount(Integer  attemptCount) {
+        this.attemptCount = attemptCount;
     }
 }
 

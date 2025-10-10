@@ -19,3 +19,14 @@
 .button.label-style:pressed {
     -fx-background-color: rgba(0,0,0,0.15);
 }
+
+/* styles.css */
+.grid-pane-sidebar {
+    -fx-background-color: #a4a4ab; /* dark gray, similar to ChatGPT sidebar */
+    -fx-background-radius: 25;     /* rounded corners */
+    -fx-padding: 15;               /* inner spacing */
+    -fx-border-radius: 25;         /* match rounded corners for border */
+    -fx-border-color: #444;        /* subtle border */
+    -fx-border-width: 0;
+    -fx-end-margin: 10;
+}

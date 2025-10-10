@@ -4,25 +4,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="768.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prepper.QuestionViewController">
-   <children>
-      <Label fx:id="QuestionLabel" alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="169.0" prefWidth="674.0" text="Label" textAlignment="CENTER">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Label>
-      <Button fx:id="ButtonC" layoutY="591.0" mnemonicParsing="false" prefHeight="177.0" prefWidth="387.0" text="Button" />
-      <Button fx:id="ButtonD" layoutX="387.0" layoutY="591.0" mnemonicParsing="false" prefHeight="177.0" prefWidth="387.0" text="Button" />
-      <Button fx:id="ButtonA" layoutY="414.0" mnemonicParsing="false" prefHeight="177.0" prefWidth="387.0" text="Button" />
-      <Button fx:id="ButtonB" layoutX="387.0" layoutY="414.0" mnemonicParsing="false" prefHeight="177.0" prefWidth="387.0" text="Button" />
-      <Label fx:id="ScoreLabel" alignment="CENTER" layoutX="662.0" layoutY="14.0" prefHeight="44.0" prefWidth="98.0" text="Label">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imageHolder" fitHeight="237.0" fitWidth="527.0" layoutX="124.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true" visible="false" />
-      <Button fx:id="nextQuestion" layoutX="622.0" layoutY="365.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" text="Next " visible="false"/>
-   </children>
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prepper.QuestionViewController">
+    <children>
+        <Label fx:id="ScoreLabel" alignment="CENTER_RIGHT" layoutX="662.0" layoutY="14.0" prefHeight="44.0" prefWidth="98.0" text="Label" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="14.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+      <HBox alignment="CENTER" layoutX="124.0" layoutY="177.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="124.0">
+         <children>
+                <ImageView fx:id="imageHolder" fitHeight="185.0" fitWidth="527.0" pickOnBounds="true" preserveRatio="true" visible="true" />
+         </children>
+      </HBox>
+        <Label fx:id="QuestionLabel" alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="169.0" prefWidth="674.0" text="Label" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="14.0">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Label>
+        <Button fx:id="nextQuestion" layoutX="622.0" layoutY="365.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="141.0" text="Next " visible="false" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="320.0" />
+        <GridPane hgap="0" vgap="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="375.0">
+
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+            </columnConstraints>
+
+            <rowConstraints>
+                <RowConstraints percentHeight="50" vgrow="ALWAYS" />
+                <RowConstraints percentHeight="50" vgrow="ALWAYS" />
+            </rowConstraints>
+
+            <Button fx:id="ButtonA" maxHeight="Infinity" maxWidth="Infinity" minHeight="0.0" minWidth="0.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button fx:id="ButtonB" maxHeight="Infinity" maxWidth="Infinity" minHeight="0.0" minWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Button fx:id="ButtonC" maxHeight="Infinity" maxWidth="Infinity" minHeight="0.0" minWidth="0.0" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button fx:id="ButtonD" maxHeight="Infinity" maxWidth="Infinity" minHeight="0.0" minWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        </GridPane>
+    </children>
 </AnchorPane>

@@ -3,6 +3,13 @@ package com.prepper;
 import com.data.JdbiDAOFactory;
 import com.data.PaperDAO;
 import com.domain.Paper;
+import eu.hansolo.fx.charts.ArcChart;
+import eu.hansolo.fx.charts.ArcChartBuilder;
+import eu.hansolo.fx.charts.CircularPlotBuilder;
+import eu.hansolo.fx.charts.data.PlotItem;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -12,17 +19,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 public class HomeViewController {
     @FXML
     private Button AddPaperButton;
     @FXML
-    private AnchorPane contentPane;
+    public AnchorPane contentPane;
     @FXML
     private VBox sidebar;
     private PaperDAO paperDAO;
@@ -52,7 +62,9 @@ public class HomeViewController {
                         Node paperView = loader.load();
                         PaperViewController controller = loader.getController();
                         controller.setPaperCode(PaperCode);
-                        contentPane.getChildren().clear();
+                        if (contentPane.getChildren() != null) {
+                            contentPane.getChildren().clear();
+                        }
                         contentPane.getChildren().add(paperView);
                         controller.setContentPane(contentPane);
                         popup.close();
@@ -92,10 +104,6 @@ public class HomeViewController {
         }
     }
 
-    AnchorPane getContentPane() {
-        return contentPane;
-    }
-
     public Button PaperSelectButton(String paperCode) {
         Button button = new Button();
         button.setText(paperCode);
@@ -109,8 +117,9 @@ public class HomeViewController {
                 Node paperView = loader.load();
                 PaperViewController controller = loader.getController();
                 controller.setPaperCode(paperCode);
-                contentPane.getChildren().clear();
-                contentPane.getChildren().add(paperView);
+                if (contentPane.getChildren() != null) {
+                    contentPane.getChildren().clear();
+                }                contentPane.getChildren().add(paperView);
                 controller.setContentPane(contentPane);
                 // Make it resize with contentPane
                 AnchorPane.setTopAnchor(paperView, 0.0);

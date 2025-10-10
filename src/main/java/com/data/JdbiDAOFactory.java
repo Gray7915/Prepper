@@ -18,4 +18,8 @@ public class JdbiDAOFactory {
     public static QuestionSetDAO getQuestionSetDAO() {
         return jdbi.onDemand(QuestionSetDAO.class);
     }
+
+    public static FlashQuestionDAO getFlashQuestionDAO() {
+        return jdbi.onDemand(FlashQuestionDAO.class);
+    }
 }

@@ -14,7 +14,7 @@ public interface QuestionSetDAO {
     @SqlUpdate("INSERT INTO QuestionSet(PaperCode, QuestionSetCode) VALUES(:paperCode, :questionSetCode)")
     void SaveQuestionSet(@BindBean QuestionSet questionSet);
 
-    @SqlUpdate("DELETE FROM QuestionSet WHERE QuestionSetCode = :QuestionSetCode AND PaperCode = :PaperCode")
+    @SqlUpdate("DELETE FROM QuestionSet WHERE QuestionSetCode = :questionSetCode AND PaperCode = :PaperCode")
     void DeleteQuestionSet(@BindBean QuestionSet QuestionSet);
 
     @SqlQuery("SELECT * FROM QuestionSet WHERE PaperCode = :paperCode")
@@ -24,4 +24,10 @@ public interface QuestionSetDAO {
     @SqlQuery("SELECT * FROM QuestionSet")
     @RegisterBeanMapper(QuestionSet.class)
     Collection<QuestionSet> getQuestionSets();
+
+    @SqlUpdate("UPDATE QuestionSet SET PreviousScore = :previousScore, AverageScore = :averageScore, AttemptCount = :attemptCount "
+    + "WHERE PaperCode = :paperCode AND QuestionSetCode = :questionSetCode")
+    void addScoreandOverall(@BindBean  QuestionSet questionSet);
+
+
 }

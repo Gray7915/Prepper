@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prepper.AddFlashQuestionViewController">
+   <children>
+      <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" percentWidth="20.0" prefWidth="101.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="516.0" minWidth="10.0" percentWidth="30.0" prefWidth="143.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="516.0" minWidth="10.0" percentWidth="30.0" prefWidth="379.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="516.0" minWidth="10.0" percentWidth="20.0" prefWidth="379.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="0.0" minHeight="10.0" percentHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="0.0" minHeight="10.0" percentHeight="90.0" prefHeight="56.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ScrollPane fx:id="flashQuestionHolder" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="4" GridPane.rowIndex="1">
+               <content>
+                  <VBox fx:id="flashHolder" prefHeight="200.0" prefWidth="100.0" spacing="20" />
+               </content>
+            </ScrollPane>
+            <Label prefHeight="17.0" prefWidth="84.0" text="Category name" GridPane.columnIndex="1" />
+            <TextField fx:id="categoryNameInput" GridPane.columnIndex="2" />
+            <Button fx:id="cancelSet" mnemonicParsing="false" text="Cancel" />
+            <Button fx:id="finishSet" mnemonicParsing="false" text="Finish Set" GridPane.columnIndex="3" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
