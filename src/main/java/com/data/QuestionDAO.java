@@ -17,10 +17,9 @@ public interface QuestionDAO {
     void insertQuestion(@BindBean Question question);
 
     @SqlUpdate("UPDATE Question SET " +
-            "Question = :question, Image = :image, " +
-            "AnswerA = :a, AnswerB = :b, AnswerC = :c, AnswerD = :d, Answer = :answer," +
-            " PaperCode = :paperCode, QuestionSetCode = :QuestionSetCode " +
-            "WHERE PaperCode = :paperCode AND QuestionSetCode = :QuestionSetCode AND Question = :Question")
+            "Image = coalesce(:image, image), " +
+            "AnswerA = coalesce(:a, AnswerA), AnswerB = coalesce(:b, AnswerB), AnswerC = coalesce(:c, AnswerC), AnswerD = coalesce(:d, AnswerD) " +
+            "WHERE PaperCode = :paperCode AND QuestionSetCode = :questionSetCode AND Question = :question")
     void updateQuestion(@BindBean Question question);
 
     @SqlUpdate("DELETE FROM Question WHERE PaperCode = :paperCode AND QuestionSetCode = :QuestionSetCode AND Question = :Question")
@@ -29,6 +28,7 @@ public interface QuestionDAO {
     @SqlQuery("select * from Question where PaperCode = :paperCode AND QuestionSetCode = :questionSetCode")
     @RegisterBeanMapper(Question.class)
     Collection<Question> getQuestionsForSet(@Bind("paperCode") String paperCode, @Bind("questionSetCode") String questionSetCode);
+
     @SqlQuery("select * from Question where PaperCode = :paperCode")
     @RegisterBeanMapper(Question.class)
     Collection<Question> getQuestionSetsForPaper(@Bind("paperCode") String paperCode);

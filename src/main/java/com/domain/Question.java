@@ -9,7 +9,7 @@ import java.io.ByteArrayInputStream;
 public class Question {
 
     private String question;
-    private Image image;
+    private byte[] image;
     @ColumnName("AnswerA")
     private String a;
     @ColumnName("AnswerB")
@@ -28,8 +28,7 @@ public class Question {
 
     public Question(String Question, byte[] Image, String A, String B, String C, String D, String Answer, String PaperCode, String QuestionSetCode) {
         this.question = Question;
-        ByteArrayInputStream bis = new ByteArrayInputStream(Image);
-        this.image = new Image(bis);
+        this.image = Image;
         this.a = A;
         this.b = B;
         this.c = C;
@@ -58,18 +57,14 @@ public class Question {
         this.question = Question;
     }
 
-    public Image getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Image Image) {
+    public void setImage(byte[] Image) {
         this.image = Image;
     }
 
-    public void setImage(byte[] Image) {
-        ByteArrayInputStream bis = new ByteArrayInputStream(Image);
-        this.image = new Image(bis);
-    }
 
     public String getA() {
         return a;
@@ -127,8 +122,8 @@ public class Question {
         return questionSetCode;
     }
 
-    public void setQuestionSetCode(String QuestionSetCode) {
-        this.questionSetCode = QuestionSetCode;
+    public void setQuestionSetCode(String questionSetCode) {
+        this.questionSetCode = questionSetCode;
     }
 
     @Override
