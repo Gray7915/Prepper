@@ -8,6 +8,8 @@ module com.prepper {
     requires java.desktop;
     requires eu.hansolo.tilesfx;
     requires eu.hansolo.fx.charts;
+    requires ai.djl.api;
+    requires ai.djl.tokenizers;
     opens com.prepper to javafx.fxml;
     opens com.domain to org.jdbi.v3.core; // <-- add this line
     exports com.prepper;

@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public interface QuestionSetDAO {
 
-    @SqlUpdate("INSERT INTO QuestionSet(PaperCode, QuestionSetCode) VALUES(:paperCode, :questionSetCode)")
+    @SqlUpdate("INSERT INTO QuestionSet(PaperCode, QuestionSetCode, SetType) VALUES(:paperCode, :questionSetCode, :setType)")
     void SaveQuestionSet(@BindBean QuestionSet questionSet);
 
     @SqlUpdate("DELETE FROM QuestionSet WHERE QuestionSetCode = :questionSetCode AND PaperCode = :PaperCode")

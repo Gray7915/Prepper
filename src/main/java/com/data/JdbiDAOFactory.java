@@ -22,4 +22,8 @@ public class JdbiDAOFactory {
     public static FlashQuestionDAO getFlashQuestionDAO() {
         return jdbi.onDemand(FlashQuestionDAO.class);
     }
+    public static ShortAnswerQuestionDAO getShortAnswerQuestionDAO () {
+        return jdbi.onDemand(ShortAnswerQuestionDAO.class);
+    }
+
 }

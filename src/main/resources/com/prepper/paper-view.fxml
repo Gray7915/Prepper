@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id = "paperViewRoot" prefHeight="768.0" prefWidth="768.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prepper.PaperViewController">
+<VBox fx:id="paperViewRoot" prefHeight="768.0" prefWidth="768.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.prepper.PaperViewController">
    <children>
       <HBox prefHeight="70.0" prefWidth="768.0">
          <children>
@@ -19,7 +19,12 @@
                   <Insets bottom="15.0" left="15.0" top="15.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="CreateQuestionSet" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Create Question Set">
+            <Button fx:id="CreateQuestionSet" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Create Set">
+               <HBox.margin>
+                  <Insets bottom="15.0" left="15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="shortAnsSet" mnemonicParsing="false" prefHeight="38.0" prefWidth="147.0" text="Create Short Ans Set">
                <HBox.margin>
                   <Insets bottom="15.0" left="15.0" top="15.0" />
                </HBox.margin>
