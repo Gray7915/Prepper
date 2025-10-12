@@ -11,6 +11,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+    maven { url = uri("https://djl.ai/maven/") }
 }
 
 val junitVersion = "5.10.2"
@@ -32,7 +33,7 @@ application {
 
 javafx {
     version = "23.0.2" // latest JavaFX 23 release
-    modules = listOf("javafx.controls", "javafx.fxml")
+    modules = listOf("javafx.controls", "javafx.fxml",  "javafx.swing",  "javafx.web")
 }
 
 
@@ -51,15 +52,18 @@ dependencies {
     //Charts and graphs hooray
     implementation("eu.hansolo:tilesfx:21.0.9")
     implementation("eu.hansolo.fx:charts:21.0.21")
+
+    implementation(platform("ai.djl:bom:0.34.0"))
+    implementation ("ai.djl:api")
+    implementation ("ai.djl.huggingface:tokenizers:0.34.0") // Updated version
+    implementation ("ai.djl.pytorch:pytorch-engine:0.34.0") // Updated version
+    implementation ("ai.djl.pytorch:pytorch-native-cpu:1.13.1:win-x86_64")
 }
 tasks.withType<Test> {
     useJUnitPlatform()
 }
 
 jlink {
-    // Include all runtime dependencies as files
-    addExtraDependencies(*configurations.runtimeClasspath.get().files.map { it.absolutePath }.toTypedArray())
-
     imageZip.set(layout.buildDirectory.file("/distributions/app-${javafx.platform.classifier}.zip"))
     options.set(listOf("--strip-debug", "--compress", "2", "--no-header-files", "--no-man-pages"))
     launcher {

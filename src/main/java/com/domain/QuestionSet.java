@@ -14,8 +14,10 @@ public class QuestionSet {
     private float averageScore;
     private float currentScore;
     private ArrayList<Question> Questions;
+    private String setType;
 
-    public QuestionSet(String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore, int timesTaken) {
+    public QuestionSet(String setType, String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore, int timesTaken) {
+        this.setType = setType;
         this.paperCode = PaperCode;
         this.questionSetCode = QuestionSetCode;
         this.attemptCount = timesTaken;
@@ -23,14 +25,16 @@ public class QuestionSet {
         this.averageScore = AverageScore;
     }
 
-    public QuestionSet(String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore) {
+    public QuestionSet(String setType, String PaperCode, String QuestionSetCode, float PreviousScore, float AverageScore) {
+        this.setType = setType;
         this.paperCode = PaperCode;
         this.questionSetCode = QuestionSetCode;
         this.previousScore = PreviousScore;
         this.averageScore = AverageScore;
     }
 
-    public QuestionSet(String PaperCode, String QuestionSetCode) {
+    public QuestionSet(String setType, String PaperCode, String QuestionSetCode) {
+        this.setType = setType;
         this.paperCode = PaperCode;
         this.questionSetCode = QuestionSetCode;
     }
@@ -93,5 +97,12 @@ public class QuestionSet {
     public void setAttemptCount(Integer  attemptCount) {
         this.attemptCount = attemptCount;
     }
-}
 
+    public String getSetType() {
+        return setType;
+    }
+
+    public void setSetType(String setType) {
+        this.setType = setType;
+    }
+}

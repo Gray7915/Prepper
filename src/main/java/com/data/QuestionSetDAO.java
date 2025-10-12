@@ -11,7 +11,7 @@ import java.util.Collection;
 
 public interface QuestionSetDAO {
 
-    @SqlUpdate("INSERT INTO QuestionSet(PaperCode, QuestionSetCode) VALUES(:paperCode, :questionSetCode)")
+    @SqlUpdate("INSERT INTO QuestionSet(PaperCode, QuestionSetCode, SetType) VALUES(:paperCode, :questionSetCode, :setType)")
     void SaveQuestionSet(@BindBean QuestionSet questionSet);
 
     @SqlUpdate("DELETE FROM QuestionSet WHERE QuestionSetCode = :questionSetCode AND PaperCode = :PaperCode")
@@ -26,8 +26,6 @@ public interface QuestionSetDAO {
     Collection<QuestionSet> getQuestionSets();
 
     @SqlUpdate("UPDATE QuestionSet SET PreviousScore = :previousScore, AverageScore = :averageScore, AttemptCount = :attemptCount "
-    + "WHERE PaperCode = :paperCode AND QuestionSetCode = :questionSetCode")
+            + "WHERE PaperCode = :paperCode AND QuestionSetCode = :questionSetCode")
     void addScoreandOverall(@BindBean  QuestionSet questionSet);
-
-
 }

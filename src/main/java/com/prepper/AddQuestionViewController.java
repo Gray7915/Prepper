@@ -38,6 +38,7 @@ public class AddQuestionViewController {
     String imageFilePath = null;
     String QuestionSetCode;
     String PaperCode;
+    String setType;
     QuestionDAO questionDAO;
     QuestionSetDAO questionSetDAO;
 
