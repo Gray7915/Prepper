@@ -57,7 +57,7 @@ dependencies {
     implementation ("ai.djl:api")
     implementation ("ai.djl.huggingface:tokenizers:0.34.0") // Updated version
     implementation ("ai.djl.pytorch:pytorch-engine:0.34.0") // Updated version
-    implementation ("ai.djl.pytorch:pytorch-native-cpu:1.13.1:win-x86_64")
+    implementation ("ai.djl.pytorch:pytorch-native-cpu:1.13.1:linux-x86_64")
 }
 tasks.withType<Test> {
     useJUnitPlatform()
@@ -70,5 +70,3 @@ jlink {
         name = "app"
     }
 }
-
-
