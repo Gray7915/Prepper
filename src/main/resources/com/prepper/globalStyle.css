@@ -30,3 +30,19 @@
     -fx-border-width: 0;
     -fx-end-margin: 10;
 }
+
+
+.fading-border {
+    -fx-padding: 5; /* space for the glow */
+    -fx-background-color:
+            radial-gradient(
+                    center 50% 50%,
+                    radius 250%,
+                    rgba(0,255,0,0.4) 40%,   /* bright near center */
+                    rgba(0,255,0,0.6) 60%,   /* soft fade */
+                    rgba(0,255,0,0.8) 80%,   /* fully transparent at edge */
+                    rgba(0,255,0, 1) 95%
+            );
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+}

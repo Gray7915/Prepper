@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 
 import java.awt.*;
@@ -27,17 +28,25 @@ public class addshortAnswerQuestion {
     @FXML
     void initialize() {
         shortAnswerQuestionDAO = JdbiDAOFactory.getShortAnswerQuestionDAO();
-        setSaveQuestionButton();
+        saveQuestionButton.setOnAction(e -> {
+            setSaveQuestionButton();
+        });
+        answerBox.setOnKeyPressed(e -> {
+            if (e.isShortcutDown() && e.getCode() == KeyCode.ENTER) {
+                saveQuestionButton.fire();
+                e.consume();
+            }
+        });
     }
     public void setContentPane(AnchorPane contentPane) {
         this.contentPane = contentPane;
     }
 
     public void setSaveQuestionButton(){
-        saveQuestionButton.setOnAction(e -> {
             System.out.println("did i run?");
             ShortAnswerQuestion question = new ShortAnswerQuestion(questionBox.getText().trim(), answerBox.getText().trim(), PaperCode, QuestionSetCode);
             shortAnswerQuestionDAO.SaveShortAnswerQuestion(question);
-        });
+            questionBox.clear();
+            answerBox.clear();
     }
 }

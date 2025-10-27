@@ -11,6 +11,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -29,7 +30,8 @@ public class PaperViewController {
     private Button CreateQuestionSet, shortAnsSet;
     @FXML
     private VBox paperViewRoot;
-
+    @FXML
+    VBox container;
     private String paperCode;
     @FXML
     AnchorPane contentPane;
@@ -281,9 +283,9 @@ public class PaperViewController {
             aveScoreChart.setTitleAlignment(TextAlignment.CENTER);
             aveScoreChart.setTextSize(Tile.TextSize.BIGGER);
             hBox.getChildren().addAll(vBox, prevScoreChart, aveScoreChart);
-            paperViewRoot.setPadding(new Insets(0, 20, 0, 20));
-            paperViewRoot.getChildren().add(hBox);
-            paperViewRoot.setSpacing(10);
+            container.setPadding(new Insets(0, 20, 0, 20));
+            container.getChildren().add(hBox);
+            container.setSpacing(10);
         }
 
         for(QuestionSet questionSet : questionSets){
@@ -395,9 +397,9 @@ public class PaperViewController {
                 aveScoreChart.setTitleAlignment(TextAlignment.CENTER);
                 aveScoreChart.setTextSize(Tile.TextSize.BIGGER);
                 hBox.getChildren().addAll(vBox, prevScoreChart, aveScoreChart);
-                paperViewRoot.setPadding(new Insets(0, 20, 0, 20));
-                paperViewRoot.getChildren().add(hBox);
-                paperViewRoot.setSpacing(10);
+                container.setPadding(new Insets(0, 20, 0, 20));
+                container.getChildren().add(hBox);
+                container.setSpacing(10);
             }
         }
     }
